@@ -2,5 +2,5 @@
 package foo.bar;
 
 public class cu {
-
+int oi = 1;
 }
