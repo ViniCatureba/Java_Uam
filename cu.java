@@ -2,8 +2,9 @@
 package foo.bar;
 
 public class cu {
-  int cuzinho = 2;
+  
   int cu = 1;
+  int cu2;
   if(cu == 1){
     System.out.println("Vc da o cu");
   }
