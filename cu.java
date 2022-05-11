@@ -3,9 +3,11 @@ package foo.bar;
 
 public class cu {
   int ainda_Da = 2;
+  String cuzão = "GRANDE CU";
+  <<<<<<< ViniCatureba-patch-2
+  =======
   
-  
-  
+  >>>>>>> main
   int cu = 1;
   int cu2;
   if(cu == 1){
