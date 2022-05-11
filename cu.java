@@ -3,6 +3,7 @@ package foo.bar;
 
 public class cu {
   int ainda_Da = 2;
+  String cuzão = "GRANDE CU";
   int cu = 1;
   int cu2;
   if(cu == 1){
