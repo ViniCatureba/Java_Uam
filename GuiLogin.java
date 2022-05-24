@@ -63,6 +63,7 @@ public class GuiLogin implements ActionListener{
     }
     public void actionPerformed(ActionEvent e) {
         String user = userText.getText();
+        String password = passwordText.getText():
         //precisa fazer a coparação de char para string.
         //char password = passwordText.getPassword();
 
