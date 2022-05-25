@@ -7,14 +7,20 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 //to do: Fazer comparação de de char para string, para validar input. Linha 66
 //precisa de um inicio de bd para conferir os inputs com usuarios cadasrados
 
 
 
 
+public class GuiLogin implements ActionListener {
 
-public class GuiLogin implements ActionListener{
     private static JLabel userLabel;
     private static JTextField userText;
     private static JLabel passwordLabel;
@@ -22,8 +28,12 @@ public class GuiLogin implements ActionListener{
     private static JButton loginEnterButton;
     private static JLabel successMsg;
     public static void main(String[] args) {
+
+        
+        
         JPanel panel = new JPanel();
         JFrame frame = new JFrame();
+        
         frame.setSize(400, 200);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(panel);
@@ -54,24 +64,49 @@ public class GuiLogin implements ActionListener{
 
 
 
-        successMsg = new JLabel("");
-        successMsg.setBounds(10, 110, 300, 25);
-        panel.add(successMsg);
+      
 
 
+        
         frame.setVisible(true);
     }
     public void actionPerformed(ActionEvent e) {
-        String user = userText.getText();
-        String password = passwordText.getText():
-        //precisa fazer a coparação de char para string.
-        //char password = passwordText.getPassword();
+       String user = userText.getText();
+       String password = String.valueOf(passwordText.getPassword());
+       String databaseUsername = "";
+       String databasePassword = "";
+       
+       
+       String SQL = "SELECT * FROM login WHERE usuario='" + user + "' && senha='" + password+ "'";
 
-        if(user.equals() && password.equals()) {
-            successMsg.setText("Login efetuado om sucesso, seja bem vindo ao sistema, "+ user);
+       try
+       {
+           Class.forName("com.mysql.cj.jdbc.Driver");
+           Connection con=DriverManager.getConnection(
+                   "jdbc:mysql://localhost:3306/restaurante_login","root","Vinivini14!");
+           Statement stmt=con.createStatement();  
+           ResultSet rs=stmt.executeQuery(SQL);
+           System.out.println("rs");
+           
+            
+           JPanel panel = new JPanel();
+           successMsg = new JLabel("Login efetuado com sucesso!");
+           successMsg.setBounds(10, 110, 300, 25);
+           panel.add(successMsg);
+           
+           
+       }
+       catch(Exception r)
+       {
+           System.out.println(r);
+       }
+       
+       
 
-        }
+    
+    
+      
 
-        
-    }
+         
+}
 }
